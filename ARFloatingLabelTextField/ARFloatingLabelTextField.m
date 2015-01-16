@@ -12,10 +12,22 @@
 @property (nonatomic, strong) CATextLayer *textLayer;
 @property (nonatomic, strong) NSLayoutConstraint *labelBottom;
 @end
+
+
 static CGFloat kAnimationTime = 0.4;
+static CGFloat kDefaultScale = 0.6;
+static UIEdgeInsets kDefaulInsets;
+static UIColor *kDefaultPlaceholderColor;
+
 @implementation ARFloatingLabelTextField{
     BOOL _labelIsUp;
     BOOL _isAnimating;
+}
+
++ (void)initialize
+{
+    kDefaulInsets = UIEdgeInsetsMake(4, 4, 4, 4);
+    kDefaultPlaceholderColor = [UIColor lightGrayColor];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -37,10 +49,10 @@ static CGFloat kAnimationTime = 0.4;
 
 - (void)initialSetup
 {
-    self.labelScale = 0.6;
-    self.insets = UIEdgeInsetsMake(4, 4, 4, 4);
+    self.labelScale = kDefaultScale;
+    self.insets = kDefaulInsets;
     self.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-    self.placeholderColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
+    self.placeholderColor = kDefaultPlaceholderColor;
     [[self layer] addSublayer:self.textLayer];
     
     if(self.text.length){
