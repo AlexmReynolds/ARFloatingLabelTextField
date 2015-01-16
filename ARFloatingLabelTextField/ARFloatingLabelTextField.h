@@ -17,7 +17,6 @@ typedef NS_OPTIONS(NSInteger, ARLabelAnimationStyle) {
 
 @interface ARFloatingLabelTextField : UITextField
 
-@property (nonatomic, strong) UIColor *labelColor;
 @property (nonatomic, strong) UIColor *placeholderColor;
 @property (nonatomic) UIEdgeInsets insets;
 

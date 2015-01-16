@@ -38,7 +38,6 @@ static CGFloat kAnimationTime = 0.4;
 - (void)initialSetup
 {
     self.labelScale = 0.6;
-    self.labelColor = self.tintColor;
     self.insets = UIEdgeInsetsMake(4, 4, 4, 4);
     self.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
     self.placeholderColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
@@ -72,6 +71,7 @@ static CGFloat kAnimationTime = 0.4;
                                                  name:UITextFieldTextDidBeginEditingNotification
                                                object:self];
 }
+#pragma mark - Setters
 
 - (void)setFont:(UIFont *)font
 {
@@ -86,6 +86,19 @@ static CGFloat kAnimationTime = 0.4;
 - (void)setPlaceholder:(NSString *)placeholder
 {
     self.textLayer.string = placeholder;
+}
+
+- (void)setTintColor:(UIColor *)tintColor
+{
+    [super setTintColor:tintColor];
+    if(_labelIsUp && self.isFirstResponder)
+        self.textLayer.foregroundColor = tintColor.CGColor;
+}
+- (void)setPlaceholderColor:(UIColor *)placeholderColor
+{
+    _placeholderColor = placeholderColor;
+    if(!self.isFirstResponder)
+        self.textLayer.foregroundColor = _placeholderColor.CGColor;
 }
 
 - (void)dealloc
