@@ -34,7 +34,6 @@ static UIColor *kDefaultPlaceholderColor;
     self = [super initWithFrame:frame];
     if(self){
         [self initialSetup];
-
     }
     return self;
 }
@@ -83,6 +82,29 @@ static UIColor *kDefaultPlaceholderColor;
                                                  name:UITextFieldTextDidBeginEditingNotification
                                                object:self];
 }
+
+#pragma mark - Getters
+
+- (CATextLayer *)textLayer
+{
+    if(_textLayer == nil){
+        CATextLayer *textLayer = [CATextLayer layer];
+        [textLayer setString:@"Hello World"];
+        [textLayer setForegroundColor:self.placeholderColor.CGColor];
+        [textLayer setFontSize:self.font.pointSize];
+        CGFontRef font = CGFontCreateWithFontName((CFStringRef)self.font.fontName);
+        textLayer.font = font;
+        CGFontRelease(font);
+        textLayer.shouldRasterize = NO;
+        textLayer.anchorPoint = CGPointMake(0, 0.5);
+        textLayer.contentsScale = [[UIScreen mainScreen] scale];
+        
+        [textLayer setFrame:[self baseFrameForTextLayer]];
+        _textLayer = textLayer;
+    }
+    return _textLayer;
+}
+
 #pragma mark - Setters
 
 - (void)setFont:(UIFont *)font
@@ -112,6 +134,12 @@ static UIColor *kDefaultPlaceholderColor;
     _placeholderColor = placeholderColor;
     if(!self.isFirstResponder)
         self.textLayer.foregroundColor = _placeholderColor.CGColor;
+}
+
+- (void)setLabelScale:(CGFloat)labelScale
+{
+    _labelScale = labelScale;
+    [self invalidateIntrinsicContentSize];
 }
 
 - (void)dealloc
@@ -145,27 +173,7 @@ static UIColor *kDefaultPlaceholderColor;
     }
 }
 
-- (CATextLayer *)textLayer
-{
-    if(_textLayer == nil){
-        CATextLayer *textLayer = [CATextLayer layer];
-//        CGFloat offset = [self sizeOfText:@"one line" forFont:self.font].height;
-
-        [textLayer setString:@"Hello World"];
-        [textLayer setForegroundColor:self.placeholderColor.CGColor];
-        [textLayer setFontSize:self.font.pointSize];
-        CGFontRef font = CGFontCreateWithFontName((CFStringRef)self.font.fontName);
-        textLayer.font = font;
-        CGFontRelease(font);
-        textLayer.shouldRasterize = NO;
-        textLayer.anchorPoint = CGPointMake(0, 0.5);
-        textLayer.contentsScale = [[UIScreen mainScreen] scale];
-
-        [textLayer setFrame:[self baseFrameForTextLayer]];
-        _textLayer = textLayer;
-    }
-    return _textLayer;
-}
+#pragma mark - Helpers
 
 - (CGRect)baseFrameForTextLayer
 {
@@ -193,40 +201,46 @@ static UIColor *kDefaultPlaceholderColor;
     return size;
 }
 
+- (BOOL)textLayerNeedsLayoutForLabelPosition
+{
+    CGRect labelFrame = [self baseFrameForTextLayer];
+    return _labelIsUp && (!CATransform3DEqualToTransform(self.textLayer.transform, [self labelPositionTransform]) || !CGRectEqualToRect(labelFrame, self.textLayer.frame));
+}
+
+- (BOOL)textLayerNeedsLayoutForPlaceholderPosition
+{
+    CGRect labelFrame = [self baseFrameForTextLayer];
+    return !_labelIsUp && (!CATransform3DEqualToTransform(self.textLayer.transform, [self placeHolderPositionTransform]) || !CGRectEqualToRect(labelFrame, self.textLayer.frame));
+}
+
+#pragma mark - Method Overrides
+
 - (CGSize)sizeThatFits:(CGSize)size
 {
     CGSize textSize = [self sizeOfText:self.text forFont:self.font];
     CGSize placeholderSize = [self sizeOfText:self.placeholder forFont:self.font];
-
+    
     CGFloat width = MAX(textSize.width, placeholderSize.width);
     CGFloat height = MAX(textSize.height, placeholderSize.height) * (1 + self.labelScale);
-
+    
     return CGSizeMake(width, height);
 }
-
-//- (CGRect)textRectForBounds:(CGRect)bounds{
-//    CGRect rect = [super textRectForBounds:bounds];
-//    NSLog(@"rect %@", NSStringFromCGRect(rect));
-//    CGFloat widthOfLabel = 100;
-//    return CGRectMake(rect.origin.x, rect.origin.y, MAX(rect.size.width, widthOfLabel), rect.size.height);
-//}
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-//    CGSize size = [self sizeOfText:self.placeholder forFont:self.font];
+    
     CGRect labelFrame = [self baseFrameForTextLayer];
     if(!_isAnimating){
-        if(_labelIsUp){
+        if([self textLayerNeedsLayoutForLabelPosition]){
             self.textLayer.transform = [self placeHolderPositionTransform];
             [self.textLayer setFrame:labelFrame];
             self.textLayer.transform = [self labelPositionTransform];
-        }else {
+        }else if([self textLayerNeedsLayoutForPlaceholderPosition]){
             self.textLayer.transform = [self placeHolderPositionTransform];
             [self.textLayer setFrame:labelFrame];
         }
     }
-    
 }
 
 - (CGSize)intrinsicContentSize
@@ -249,6 +263,7 @@ static UIColor *kDefaultPlaceholderColor;
 {
     return  UIEdgeInsetsInsetRect(bounds, self.insets);
 }
+
 
 #pragma mark - Animation Methods
 
@@ -285,9 +300,15 @@ static UIColor *kDefaultPlaceholderColor;
 - (void)animateTextTransformValuesArray:(NSArray*)array
 {
     _isAnimating = YES;
+    [self.textLayer removeAllAnimations];
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
+
         self->_isAnimating = NO;
+        self.textLayer.transform = [[array lastObject] CATransform3DValue];
+        [self.textLayer removeAllAnimations];
+
+
     }];
     CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation
                                            animationWithKeyPath:@"transform"];
