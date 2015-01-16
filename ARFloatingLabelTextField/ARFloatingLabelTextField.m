@@ -139,7 +139,7 @@ static UIColor *kDefaultPlaceholderColor;
 {
     if(self.text.length && _labelIsUp){
         [self animateTextLayerChangeColor:self.placeholderColor];
-    }else if(self.text.length == 0) {
+    }else if(self.text.length == 0 && _labelIsUp) {
         _labelIsUp = NO;
         [self animateTextLayerDown];
     }
