@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *placeholderRed;
 
 @property (weak, nonatomic) IBOutlet UITextField *placeholderBlue;
+@property (weak, nonatomic) IBOutlet UITextField *labelScale;
 @end
 
 @implementation ViewController
@@ -51,6 +52,11 @@
     
     UIColor *placeholderColor = [UIColor colorWithRed:pRed/255.0 green:pGreen/255.0 blue:pBlue/255.0 alpha:1.0];
     self.demoField.placeholderColor = placeholderColor;
+    if(self.demoField.labelScale != [self.labelScale.text doubleValue]){
+        self.demoField.labelScale = [self.labelScale.text doubleValue];
+        self.demoField.text = nil;
+        [self.demoField resignFirstResponder];
+    }
 }
 
 @end

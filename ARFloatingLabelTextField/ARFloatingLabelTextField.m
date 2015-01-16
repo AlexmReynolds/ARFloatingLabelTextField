@@ -94,6 +94,7 @@ static CGFloat kAnimationTime = 0.4;
     if(_labelIsUp && self.isFirstResponder)
         self.textLayer.foregroundColor = tintColor.CGColor;
 }
+
 - (void)setPlaceholderColor:(UIColor *)placeholderColor
 {
     _placeholderColor = placeholderColor;
@@ -203,7 +204,7 @@ static CGFloat kAnimationTime = 0.4;
     [super layoutSubviews];
 //    CGSize size = [self sizeOfText:self.placeholder forFont:self.font];
     CGRect labelFrame = [self baseFrameForTextLayer];
-    if(!_isAnimating && (labelFrame.size.width != self.textLayer.frame.size.width || labelFrame.size.height != self.textLayer.frame.size.height)){
+    if(!_isAnimating){
         if(_labelIsUp){
             self.textLayer.transform = [self placeHolderPositionTransform];
             [self.textLayer setFrame:labelFrame];

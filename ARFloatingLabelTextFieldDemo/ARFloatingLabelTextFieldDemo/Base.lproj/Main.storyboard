@@ -21,6 +21,17 @@
                                 <rect key="frame" x="0.0" y="72" width="600" height="528"/>
                                 <color key="backgroundColor" red="0.33521380220000002" green="0.51989794629999997" blue="0.72305484689999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.6" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BF1-od-4vb">
+                                <rect key="frame" x="118" y="249" width="42" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Scale:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kh-oc-pGB">
+                                <rect key="frame" x="16" y="252" width="94.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yo-uN-T9A" customClass="ARFloatingLabelTextField">
                                 <rect key="frame" x="16" y="28" width="509" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -29,7 +40,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-nh-iBL">
                                 <rect key="frame" x="56" y="118" width="45" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIu-Wj-AWp">
                                 <rect key="frame" x="16" y="76" width="69.5" height="20.5"/>
@@ -52,7 +63,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BH4-ft-THz">
                                 <rect key="frame" x="163" y="117" width="45" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMM-mW-1gv">
                                 <rect key="frame" x="216" y="123" width="34.5" height="20.5"/>
@@ -63,7 +74,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJP-7J-MBc">
                                 <rect key="frame" x="258" y="118" width="45" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder Tint:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reU-nl-A6E">
                                 <rect key="frame" x="16" y="104" width="103.5" height="16"/>
@@ -92,37 +103,37 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="40B-6T-Ml2">
-                                <rect key="frame" x="56" y="206" width="29" height="30"/>
+                                <rect key="frame" x="56" y="208.5" width="29" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEp-ZT-0jF">
-                                <rect key="frame" x="16" y="209" width="31.5" height="20.5"/>
+                                <rect key="frame" x="16" y="211.5" width="31.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZO-4m-IW2">
-                                <rect key="frame" x="93" y="210" width="46.5" height="20.5"/>
+                                <rect key="frame" x="93" y="212.5" width="46.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SM4-jJ-fcR">
-                                <rect key="frame" x="147" y="205" width="29" height="30"/>
+                                <rect key="frame" x="147" y="207.5" width="29" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWF-2N-YUh">
-                                <rect key="frame" x="184" y="211" width="34.5" height="20.5"/>
+                                <rect key="frame" x="184" y="213.5" width="34.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="255" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WHn-Xr-ckp">
-                                <rect key="frame" x="226" y="206" width="45" height="30"/>
+                                <rect key="frame" x="226" y="208.5" width="45" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Tint:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vS9-mX-uZV">
                                 <rect key="frame" x="16" y="193" width="59.5" height="14.5"/>
@@ -135,6 +146,7 @@
                         <constraints>
                             <constraint firstItem="x6v-Fr-BmH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="140-PW-gaF"/>
                             <constraint firstItem="XWF-2N-YUh" firstAttribute="centerY" secondItem="SM4-jJ-fcR" secondAttribute="centerY" constant="1.75" id="1Cy-kP-DHj"/>
+                            <constraint firstItem="0Kh-oc-pGB" firstAttribute="top" secondItem="MEp-ZT-0jF" secondAttribute="bottom" constant="20" id="6KY-of-8b8"/>
                             <constraint firstItem="8Yo-uN-T9A" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="7Ld-rb-nA2"/>
                             <constraint firstItem="8Yo-uN-T9A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7Zy-Td-THw"/>
                             <constraint firstItem="lIu-Wj-AWp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7k7-u8-mb4"/>
@@ -163,14 +175,17 @@
                             <constraint firstItem="40B-6T-Ml2" firstAttribute="centerY" secondItem="MEp-ZT-0jF" secondAttribute="centerY" constant="1.5" id="bwc-Wb-g8i"/>
                             <constraint firstItem="jZO-4m-IW2" firstAttribute="centerY" secondItem="40B-6T-Ml2" secondAttribute="centerY" constant="-0.5" id="bz9-yk-T8E"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zN9-p5-fPL" secondAttribute="bottom" id="ci0-4u-xSe"/>
+                            <constraint firstItem="BF1-od-4vb" firstAttribute="leading" secondItem="0Kh-oc-pGB" secondAttribute="trailing" constant="8" id="cqo-9x-6zg"/>
                             <constraint firstItem="FJT-nh-iBL" firstAttribute="leading" secondItem="x6v-Fr-BmH" secondAttribute="trailing" constant="8" id="dGh-n1-fEJ"/>
                             <constraint firstItem="WHn-Xr-ckp" firstAttribute="leading" secondItem="XWF-2N-YUh" secondAttribute="trailing" constant="8" id="dO4-1W-vU5"/>
                             <constraint firstItem="zN9-p5-fPL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="f9X-i8-Mif"/>
+                            <constraint firstItem="BF1-od-4vb" firstAttribute="centerY" secondItem="0Kh-oc-pGB" secondAttribute="centerY" constant="1.5" id="fks-8k-l8L"/>
                             <constraint firstItem="MEp-ZT-0jF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hZb-1U-ee8"/>
-                            <constraint firstItem="MEp-ZT-0jF" firstAttribute="top" secondItem="vS9-mX-uZV" secondAttribute="bottom" constant="1.5" id="i5y-CQ-Wwh"/>
+                            <constraint firstItem="MEp-ZT-0jF" firstAttribute="top" secondItem="vS9-mX-uZV" secondAttribute="bottom" constant="4" id="i5y-CQ-Wwh"/>
                             <constraint firstItem="WHn-Xr-ckp" firstAttribute="centerY" secondItem="XWF-2N-YUh" secondAttribute="centerY" constant="-0.5" id="j8a-qn-x5L"/>
                             <constraint firstItem="vJP-7J-MBc" firstAttribute="centerY" secondItem="LMM-mW-1gv" secondAttribute="centerY" constant="-0.5" id="k7Q-Bg-WRD"/>
                             <constraint firstItem="DSE-lQ-YLO" firstAttribute="centerY" secondItem="FJT-nh-iBL" secondAttribute="centerY" constant="-0.5" id="lO2-Fm-4RT"/>
+                            <constraint firstItem="0Kh-oc-pGB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lbk-7L-BzT"/>
                             <constraint firstItem="vJP-7J-MBc" firstAttribute="leading" secondItem="LMM-mW-1gv" secondAttribute="trailing" constant="8" id="mHr-UD-6J9"/>
                             <constraint firstItem="SM4-jJ-fcR" firstAttribute="centerY" secondItem="jZO-4m-IW2" secondAttribute="centerY" constant="-0.5" id="owx-z1-u4m"/>
                             <constraint firstItem="D4R-uI-haO" firstAttribute="centerY" secondItem="8Yo-uN-T9A" secondAttribute="centerY" id="pfD-4x-OhV"/>
@@ -193,6 +208,7 @@
                     </view>
                     <connections>
                         <outlet property="demoField" destination="8Yo-uN-T9A" id="APb-QS-csW"/>
+                        <outlet property="labelScale" destination="BF1-od-4vb" id="Cgn-da-9ZH"/>
                         <outlet property="placeholderBlue" destination="vJP-7J-MBc" id="14U-Qn-rmI"/>
                         <outlet property="placeholderGreen" destination="BH4-ft-THz" id="krl-b9-URo"/>
                         <outlet property="placeholderRed" destination="FJT-nh-iBL" id="0kS-yy-c4A"/>
