@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ARFloatingLabelTextField"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "My version of floating labels in textfields user CATextLayer for better animation"
 
   s.description  = <<-DESC
@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/AlexmReynolds/ARFloatingLabelTextField.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/AlexmReynolds/ARFloatingLabelTextField.git", :tag => "0.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
